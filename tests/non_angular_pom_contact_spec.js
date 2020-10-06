@@ -1,12 +1,12 @@
-const { browser } = require("protractor");
-const expect = global["chai"].expect;
+const {
+  browser
+} = require("protractor");
 const homePage = require("../pages/home_page.js");
 
 describe("Epam WebSite", function () {
   it("POM Fill the contact form out", async function () {
     browser.ignoreSynchronization = true;
     browser.waitForAngularEnabled(false);
-
     browser.manage().timeouts().implicitlyWait(10000);
     homePage.getHomePage();
     const contactPage = homePage.acessContactSection();

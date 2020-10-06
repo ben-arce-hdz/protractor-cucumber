@@ -1,5 +1,9 @@
 const BasePage = require("./base_page.js");
-const { $, element, by } = require("protractor");
+const {
+  $,
+  element,
+  by
+} = require("protractor");
 const DropDownWrapper = require("../utils/dropdown_wrapper.js");
 
 class ContactPage extends BasePage {
@@ -26,10 +30,10 @@ class ContactPage extends BasePage {
   );
   personalInfoCheckBox = $("#new_form_gdprConsent + label");
   submitButton = $(".button-ui");
-  #hearAboutEpamDropDown = $(
+  hearAboutEpamDropDown = $(
     "select[name='user_comment_how_hear_about'] ~ span span.select2-selection__arrow"
   );
-  #reasonInquieryDropDown = $(
+  reasonInquieryDropDown = $(
     "select[name='mail_subjects'] ~ span span.select2-selection__arrow"
   );
 
