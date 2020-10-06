@@ -1,3 +1,15 @@
+const path = require('path');
+const yargs = require('yargs').argv;
+const reporter = require('cucumber-html-reporter');
+
+const reporterOptions = {
+  theme: 'bootstrap',
+  jsonFile: path.join(__dirname, '../../../reports/report.json'),
+  output: path.join(__dirname, '../../../reports/cucumber_report.html'),
+  reportSuiteAsScenarios: true,
+  launchReport: true
+};
+
 exports.config = {
   directConnect: true,
 
@@ -10,17 +22,26 @@ exports.config = {
     maxInstances: 3,
   },
 
-  framework: "jasmine",
+  framework: "custom",
+  frameworkPath: require.resolve('protractor-cucumber-framework'),
 
-  specs: ["./tests/non_angular_pom_contact_spec.js"],
+  specs: [
+    './features/*.feature' // accepts a glob
+  ],
 
-  // Options to be passed to Jasmine.
-  jasmineNodeOpts: {
-    showColors: true, // Use colors in the command line report.
-    defaultTimeoutInterval: 30000, // Default time to wait in ms before a test fails.
+  cucumberOpts: {
+    require: [
+      './step_definitions/*.steps.js' // accepts a glob
+    ],
+    format: ['json:./reports/report.json', './node_modules/cucumber-pretty']
   },
 
   onPrepare: function () {
-
+    browser.ignoreSynchronization = true;
+    browser.waitForAngularEnabled(false);
+    browser.manage().timeouts().implicitlyWait(10000);
   },
+  afterLaunch: () => {
+    return reporter.generate(reporterOptions);
+  }
 };

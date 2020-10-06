@@ -9,6 +9,12 @@
   "author": "benjamin arce",
   "license": "ISC",
   "dependencies": {
+    "cucumber": "^6.0.5",
+    "cucumber-pretty": "^6.0.0",
     "protractor": "^7.0.0"
+  },
+  "devDependencies": {
+    "cucumber-html-reporter": "^5.2.0",
+    "protractor-cucumber-framework": "^6.2.1"
   }
 }
