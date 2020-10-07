@@ -11,7 +11,8 @@
   "dependencies": {
     "cucumber": "^6.0.5",
     "cucumber-pretty": "^6.0.0",
-    "protractor": "^7.0.0"
+    "protractor": "^7.0.0",
+    "yargs": "^16.0.3"
   },
   "devDependencies": {
     "cucumber-html-reporter": "^5.2.0",

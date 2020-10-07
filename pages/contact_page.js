@@ -1,9 +1,5 @@
 const BasePage = require("./base_page.js");
-const {
-  $,
-  element,
-  by
-} = require("protractor");
+const { $, element, by } = require("protractor");
 const DropDownWrapper = require("../utils/dropdown_wrapper.js");
 
 class ContactPage extends BasePage {
@@ -41,8 +37,12 @@ class ContactPage extends BasePage {
     super();
   }
 
-  async selectInquiryReason(reason) {
-    await new DropDownWrapper(this.reasonInquieryDropDown).selectByText(reason);
+  selectInquiryReason(reason) {
+    try {
+      new DropDownWrapper(this.reasonInquieryDropDown).selectByText(reason);
+    } catch (error) {
+      console.log(error);
+    }
   }
   selectHowHeardAboutEpam(reason) {
     new DropDownWrapper(this.hearAboutEpamDropDown).selectByText(reason);

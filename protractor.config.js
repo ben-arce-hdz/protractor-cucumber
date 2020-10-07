@@ -1,13 +1,12 @@
-const path = require('path');
-const yargs = require('yargs').argv;
-const reporter = require('cucumber-html-reporter');
+const path = require("path");
+const reporter = require("cucumber-html-reporter");
 
 const reporterOptions = {
-  theme: 'bootstrap',
-  jsonFile: path.join(__dirname, './reports/report.json'),
-  output: path.join(__dirname, './reports/cucumber_report.html'),
+  theme: "bootstrap",
+  jsonFile: path.join(__dirname, "./reports/report.json"),
+  output: path.join(__dirname, "./reports/cucumber_report.html"),
   reportSuiteAsScenarios: true,
-  launchReport: true
+  launchReport: true,
 };
 
 exports.config = {
@@ -26,25 +25,23 @@ exports.config = {
   },
 
   framework: "custom",
-  frameworkPath: require.resolve('protractor-cucumber-framework'),
+  frameworkPath: require.resolve("protractor-cucumber-framework"),
 
-  specs: [
-    './features/*.feature' // accepts a glob
-  ],
+  specs: ["./features/*.feature"],
 
   cucumberOpts: {
-    require: [
-      './step_definitions/*.steps.js' // accepts a glob
-    ],
+    require: ["./step_definitions/*.js"],
     tags: true,
-    format: 'json:./reports/report.json'
+    format: "json:./reports/report.json",
     //format: ['json:./reports/report.json', './node_modules/cucumber-pretty']
   },
 
   onPrepare: function () {
-
+    browser.ignoreSynchronization = true;
+    browser.manage().timeouts().implicitlyWait(10000);
+    return browser.waitForAngularEnabled(false);
   },
   afterLaunch: () => {
     //return reporter.generate(reporterOptions);
-  }
+  },
 };

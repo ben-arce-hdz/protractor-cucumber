@@ -5,7 +5,8 @@ class DropDownWrapper extends ElementAction {
   constructor(element) {
     super();
     this.element = element;
-    super.click(this.element);
+    this.element.click();
+    //super.click(this.element);
   }
 
   selectByText(text) {
