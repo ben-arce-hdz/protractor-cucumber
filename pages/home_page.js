@@ -18,8 +18,8 @@ class HomePage extends BasePage {
     super.navigateTo(this.url);
   }
 
-  acessContactSection() {
-    this.contactButton.click();
+  async acessContactSection() {
+    await this.contactButton.click();
     return ContactPage;
   }
 }

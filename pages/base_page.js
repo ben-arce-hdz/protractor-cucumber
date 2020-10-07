@@ -1,4 +1,6 @@
-const { browser } = require("protractor");
+const {
+  browser
+} = require("protractor");
 const ElementAction = require("../utils/element_actions.js");
 
 class BasePage extends ElementAction {
@@ -15,8 +17,8 @@ class BasePage extends ElementAction {
     return browser.getCurrentUrl();
   }
 
-  navigateTo(url) {
-    return browser.get(url);
+  async navigateTo(url) {
+    return await browser.get(url);
   }
 }
 module.exports = BasePage;

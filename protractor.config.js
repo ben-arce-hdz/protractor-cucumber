@@ -4,14 +4,17 @@ const reporter = require('cucumber-html-reporter');
 
 const reporterOptions = {
   theme: 'bootstrap',
-  jsonFile: path.join(__dirname, '../../../reports/report.json'),
-  output: path.join(__dirname, '../../../reports/cucumber_report.html'),
+  jsonFile: path.join(__dirname, './reports/report.json'),
+  output: path.join(__dirname, './reports/cucumber_report.html'),
   reportSuiteAsScenarios: true,
   launchReport: true
 };
 
 exports.config = {
   directConnect: true,
+  allScriptsTimeout: 200000,
+  getPageTimeout: 200000,
+  SELENIUM_PROMISE_MANAGER: false,
 
   capabilities: {
     browserName: "chrome",
@@ -33,15 +36,15 @@ exports.config = {
     require: [
       './step_definitions/*.steps.js' // accepts a glob
     ],
-    format: ['json:./reports/report.json', './node_modules/cucumber-pretty']
+    tags: true,
+    format: 'json:./reports/report.json'
+    //format: ['json:./reports/report.json', './node_modules/cucumber-pretty']
   },
 
   onPrepare: function () {
-    browser.ignoreSynchronization = true;
-    browser.waitForAngularEnabled(false);
-    browser.manage().timeouts().implicitlyWait(10000);
+
   },
   afterLaunch: () => {
-    return reporter.generate(reporterOptions);
+    //return reporter.generate(reporterOptions);
   }
 };

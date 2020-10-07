@@ -41,49 +41,49 @@ class ContactPage extends BasePage {
     super();
   }
 
-  selectInquiryReason(reason) {
-    new DropDownWrapper(this.reasonInquieryDropDown).selectByText(reason);
+  async selectInquiryReason(reason) {
+    await new DropDownWrapper(this.reasonInquieryDropDown).selectByText(reason);
   }
   selectHowHeardAboutEpam(reason) {
     new DropDownWrapper(this.hearAboutEpamDropDown).selectByText(reason);
   }
-  submitForm() {
-    this.submitButton.click();
+  async submitForm() {
+    await this.submitButton.click();
   }
-  checkPersonalInfo() {
-    super.scrollUntilVisible(this.personalInfoCheckBox);
-    this.personalInfoCheckBox.click();
+  async checkPersonalInfo() {
+    await super.scrollUntilVisible(this.personalInfoCheckBox);
+    await this.personalInfoCheckBox.click();
   }
-  selectCity(cityName) {
-    new DropDownWrapper(this.cityDropDown).selectByText(cityName);
+  async selectCity(cityName) {
+    await new DropDownWrapper(this.cityDropDown).selectByText(cityName);
   }
-  selectState(stateName) {
+  async selectState(stateName) {
     super.wait(2000);
-    new DropDownWrapper(this.stateDropDown).enterText(stateName);
+    await new DropDownWrapper(this.stateDropDown).enterText(stateName);
   }
-  selectCountry(countryName) {
-    new DropDownWrapper(this.countryDropDown).selectByText(countryName);
+  async selectCountry(countryName) {
+    await new DropDownWrapper(this.countryDropDown).selectByText(countryName);
   }
-  selectPosition(positionName) {
-    new DropDownWrapper(this.positionDropDown).selectByText(positionName);
+  async selectPosition(positionName) {
+    await new DropDownWrapper(this.positionDropDown).selectByText(positionName);
   }
-  acceptCookies() {
-    this.acceptCookiesButton.click();
+  async acceptCookies() {
+    await this.acceptCookiesButton.click();
   }
-  enterUserName(userName) {
-    this.firstNameInput.sendKeys(userName);
+  async enterUserName(userName) {
+    await this.firstNameInput.sendKeys(userName);
   }
-  enterLastName(lastName) {
-    this.lastNameInput.sendKeys(lastName);
+  async enterLastName(lastName) {
+    await this.lastNameInput.sendKeys(lastName);
   }
-  enterEmail(email) {
-    this.userEmailInput.sendKeys(email);
+  async enterEmail(email) {
+    await this.userEmailInput.sendKeys(email);
   }
-  enterTelephone(telephoneNum) {
-    this.userPhoneInput.sendKeys(telephoneNum);
+  async enterTelephone(telephoneNum) {
+    await this.userPhoneInput.sendKeys(telephoneNum);
   }
-  enterCompany(companyName) {
-    this.userCompanyInput.sendKeys(companyName);
+  async enterCompany(companyName) {
+    await this.userCompanyInput.sendKeys(companyName);
   }
 }
 module.exports = new ContactPage();
