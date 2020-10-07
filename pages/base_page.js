@@ -1,20 +1,19 @@
-const {
-  browser
-} = require("protractor");
+const { browser } = require("protractor");
 const ElementAction = require("../utils/element_actions.js");
 
 class BasePage extends ElementAction {
   constructor() {
     super();
   }
-  getTitle() {
-    return browser.getTitle();
+
+  async getTitle() {
+    return await browser.getTitle();
   }
-  wait(waitInMilliseconds) {
-    return browser.sleep(waitInMilliseconds);
+  async wait(waitInMilliseconds) {
+    return await browser.sleep(waitInMilliseconds);
   }
-  getCurrenUrl() {
-    return browser.getCurrentUrl();
+  async getCurrenUrl() {
+    return await browser.getCurrentUrl();
   }
 
   async navigateTo(url) {

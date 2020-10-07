@@ -5,18 +5,18 @@ class DropDownWrapper extends ElementAction {
   constructor(element) {
     super();
     this.element = element;
-    this.element.click();
-    //super.click(this.element);
   }
 
-  selectByText(text) {
+  async selectByText(text) {
+    await super.click(this.element);
     super.waitUntilclickable(this.element);
     browser
       .findElement(by.xpath("//li[contains(text(),'" + text + "')]"))
       .click();
   }
 
-  enterText(text) {
+  async enterText(text) {
+    await super.click(this.element);
     browser
       .$("select[name='user_region'] ~span input")
       .sendKeys(text, Key.ENTER);

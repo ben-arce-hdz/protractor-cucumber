@@ -44,8 +44,8 @@ class ContactPage extends BasePage {
       console.log(error);
     }
   }
-  selectHowHeardAboutEpam(reason) {
-    new DropDownWrapper(this.hearAboutEpamDropDown).selectByText(reason);
+  async selectHowHeardAboutEpam(reason) {
+    await new DropDownWrapper(this.hearAboutEpamDropDown).selectByText(reason);
   }
   async submitForm() {
     await this.submitButton.click();
@@ -58,7 +58,7 @@ class ContactPage extends BasePage {
     await new DropDownWrapper(this.cityDropDown).selectByText(cityName);
   }
   async selectState(stateName) {
-    super.wait(2000);
+    await super.wait(1000);
     await new DropDownWrapper(this.stateDropDown).enterText(stateName);
   }
   async selectCountry(countryName) {

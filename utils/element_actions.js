@@ -1,4 +1,4 @@
-const browser = require("protractor");
+const { browser } = require("protractor");
 const WaitElement = require("./wait_until.js");
 
 class ElementActions extends WaitElement {
@@ -7,14 +7,14 @@ class ElementActions extends WaitElement {
     await browser.actions().mouseMove(element).perform();
   }
 
-  click(element) {
+  async click(element) {
     //this.waitUntilclickable(element)
-    element.click();
+    await element.click();
   }
 
-  sendKeys(element, text) {
+  async sendKeys(element, text) {
     //this.waitUntilclickable(element)
-    element.sendKeys(text);
+    await element.sendKeys(text);
   }
 }
 module.exports = ElementActions;
