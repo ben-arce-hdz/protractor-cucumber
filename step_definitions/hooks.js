@@ -3,7 +3,7 @@ const { Before, BeforeAll, After, AfterAll, Status } = require("cucumber");
 var { setDefaultTimeout } = require("cucumber");
 setDefaultTimeout(30 * 1000);
 
-BeforeAll({ timeout: 100 * 1000 }, async () => {
+BeforeAll(async () => {
   console.log("before all");
 });
 
@@ -19,6 +19,6 @@ After(async function (scenario) {
   }
 });
 
-AfterAll({ timeout: 100 * 1000 }, async () => {
+AfterAll(async () => {
   console.log("after all");
 });
