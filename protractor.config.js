@@ -31,7 +31,7 @@ exports.config = {
 
   cucumberOpts: {
     require: ["./step_definitions/*.js"],
-    tags: true,
+    tags: "~@ignore",
     format: "json:./reports/report.json",
     //format: ['json:./reports/report.json', './node_modules/cucumber-pretty']
   },

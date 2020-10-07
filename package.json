@@ -9,6 +9,8 @@
   "author": "benjamin arce",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
     "cucumber": "^6.0.5",
     "cucumber-pretty": "^6.0.0",
     "protractor": "^7.0.0",
