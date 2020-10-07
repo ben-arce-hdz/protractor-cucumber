@@ -15,7 +15,7 @@ After(async function (scenario) {
   console.log("after");
   if (scenario.result.status === Status.FAILED) {
     const screenShot = await browser.takeScreenshot();
-    this.attach(screenShot, "./reports/image");
+    this.attach(screenShot, "image/png");
   }
 });
 

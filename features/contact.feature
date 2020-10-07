@@ -1,6 +1,6 @@
 Feature: Epam Contact form
 
-    @ignore
+    @contactForm
     Scenario: Scenario name
         Given   I navigate to HomePage
         When    I click to Contact button

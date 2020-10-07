@@ -10,14 +10,13 @@ class BasePage extends ElementAction {
     return await browser.getTitle();
   }
   async wait(waitInMilliseconds) {
-    return await browser.sleep(waitInMilliseconds);
+    await browser.sleep(waitInMilliseconds);
   }
   async getCurrenUrl() {
     return await browser.getCurrentUrl();
   }
-
   async navigateTo(url) {
-    return await browser.get(url);
+    await browser.get(url);
   }
 }
 module.exports = BasePage;

@@ -8,6 +8,7 @@ class SearchPage extends BasePage {
   }
 
   async getResultCounterLabel() {
+    await super.waitUntilVisible(this.resultsCounterH2);
     await super.scrollUntilVisible(this.resultsCounterH2);
     return await this.resultsCounterH2.getText();
   }

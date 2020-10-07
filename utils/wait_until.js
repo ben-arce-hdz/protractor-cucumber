@@ -7,8 +7,8 @@ class WaitElement {
     browser.wait(EC.elementToBeClickable(element), timeout);
   }
 
-  waitUntilVisible(element, timeout = 5000) {
-    browser.wait(EC.visibilityOf(element), timeout);
+  async waitUntilVisible(element, timeout = 5000) {
+    await browser.wait(EC.visibilityOf(element), timeout);
   }
 
   waitUntilTextPresentInElement(element, text, timeout = 5000) {

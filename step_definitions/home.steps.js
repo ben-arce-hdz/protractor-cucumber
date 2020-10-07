@@ -14,6 +14,5 @@ Then(/^I search "(.*)"$/, async function (word) {
 
 Then(/^I verify "(.*)" entered is on the label$/, async function (word) {
   let result = await searchPage.getResultCounterLabel();
-  expect(result).to("Inner text");
-  console.log("valor:", a);
+  expect(result.toLowerCase()).to.contains("a");
 });

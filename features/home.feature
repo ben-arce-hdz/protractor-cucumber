@@ -1,5 +1,6 @@
 Feature: Epam HOME pAGE
 
+    @dataDriven
     Scenario Outline: Search <Word>
         Given   I navigate to HomePage
         When    I click to Search button
