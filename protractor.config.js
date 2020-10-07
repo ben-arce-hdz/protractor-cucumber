@@ -1,5 +1,6 @@
 const path = require("path");
 const reporter = require("cucumber-html-reporter");
+const yargs = require("yargs").argv;
 
 const reporterOptions = {
   theme: "bootstrap",
@@ -31,7 +32,7 @@ exports.config = {
 
   cucumberOpts: {
     require: ["./step_definitions/*.js"],
-    tags: "~@ignore",
+    tags: yargs.tag || "~@ignore",
     format: "json:./reports/report.json",
     //format: ['json:./reports/report.json', './node_modules/cucumber-pretty']
   },
