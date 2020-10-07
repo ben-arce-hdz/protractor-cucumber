@@ -31,10 +31,10 @@ exports.config = {
   specs: ["./features/*.feature"],
 
   cucumberOpts: {
+    strict: true,
     require: ["./step_definitions/*.js"],
     tags: yargs.tag || "~@ignore",
-    format: "json:./reports/report.json",
-    //format: ['json:./reports/report.json', './node_modules/cucumber-pretty']
+    format: ["json:./reports/report.json", "./node_modules/cucumber-pretty"],
   },
 
   onPrepare: function () {
