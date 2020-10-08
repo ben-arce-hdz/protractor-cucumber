@@ -6,3 +6,4 @@ project.lock.json
 
 reports/
 reports/image/
+node_modules/
