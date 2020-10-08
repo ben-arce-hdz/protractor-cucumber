@@ -1,9 +1,5 @@
 project.lock.json
 .DS_Store
 
-# Visual Studio Code
-.vscode
-
 reports/
-reports/image/
 node_modules/
